@@ -1,46 +1,31 @@
 #include <stdio.h>
-#define SIZE_I 3
-#define SIZE_J 3
+
 int main()
 {
-    int matrix1[SIZE_I][SIZE_J], matrix2[SIZE_I][SIZE_J];
-    int result_matrix[SIZE_I][SIZE_J];
+    int row = 3;
+    int col = 3;
+    int matrix3[row][col];
 
-    printf("Enter the values of matrix 1->");
-    for (int i = 0; i < SIZE_I; i++)
+    int matrix1[][] = {{1, 2, 3},
+                       {4, 5, 6},
+                       {7, 8, 9}};
+
+    int matrix2[][] = {{1, 2, 3},
+                       {4, 5, 6},
+                       {7, 8, 9}};
+
+    for (int i = 0; i < row; i++)
     {
-        for (int j = 0; j < SIZE_J; j++)
+        for (int j = 0; j < col; j++)
         {
-            printf("\npos(%d,%d)->", i + 1, j + 1);
-            scanf("%d", &matrix1[i][j]);
+            matrix3[i][j] = matrix1[i][j] + matrix2[i][j];
         }
     }
-
-    printf("Enter the values of matrix 2->");
-    for (int i = 0; i < SIZE_I; i++)
+    for (int i = 0; i < row; i++)
     {
-        for (int j = 0; j < SIZE_J; j++)
+        for (int j = 0; j < col; j++)
         {
-            printf("\npos(%d,%d)->", i + 1, j + 1);
-            scanf("%d", &matrix2[i][j]);
-        }
-    }
-
-    // matrix addition
-    for (int i = 0; i < SIZE_I; i++)
-    {
-        for (int j = 0; j < SIZE_J; j++)
-        {
-            result_matrix[i][j] = matrix1[i][j] + matrix2[i][j];
-        }
-    }
-
-    printf("Result matrix->\n");
-    for (int i = 0; i < SIZE_I; i++)
-    {
-        for (int j = 0; j < SIZE_J; j++)
-        {
-            printf("%d\t", result_matrix[i][j]);
+            printf("%d\t", matrix3[i][j]);
         }
         printf("\n");
     }
