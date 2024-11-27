@@ -1,49 +1,44 @@
 #include <stdio.h>
 
-#define MAX_ITEMS 100
-#define MAX_CAPACITY 100
-
-// Function to solve 0/1 Knapsack Problem using Dynamic Programming
-int knapsack(int weight[], int value[], int n, int W)
+int max(int a, int b)
 {
-    // dp[i][w] will store the maximum value for the first i items and capacity w
-    int dp[n + 1][W + 1];
+    return (a > b) ? a : b;
+}
 
-    // Build the dp table in bottom-up manner
+int knapsack(int m, int w[], int p[], int n)
+{
+    int V[n + 1][m + 1];
+
     for (int i = 0; i <= n; i++)
+        V[i][0] = 0;
+    for (int j = 0; j <= m; j++)
+        V[0][j] = 0;
+
+    for (int i = 1; i <= n; i++)
     {
-        for (int w = 0; w <= W; w++)
+        for (int j = 1; j <= m; j++)
         {
-            // If no item or capacity is 0, the value is 0
-            if (i == 0 || w == 0)
+            if (w[i] > j)
             {
-                dp[i][w] = 0;
+                V[i][j] = V[i - 1][j];
             }
-            // If the current item can be included in the knapsack
-            else if (weight[i - 1] <= w)
-            {
-                dp[i][w] = (dp[i - 1][w] > value[i - 1] + dp[i - 1][w - weight[i - 1]]) ? dp[i - 1][w] : value[i - 1] + dp[i - 1][w - weight[i - 1]];
-            }
-            // Otherwise, exclude the current item
             else
             {
-                dp[i][w] = dp[i - 1][w];
+                V[i][j] = max(V[i - 1][j], V[i - 1][j - w[i]] + p[i]);
             }
         }
     }
 
-    // The maximum value will be in dp[n][W]
-    return dp[n][W];
+    return V[n][m];
 }
 
 int main()
 {
-    // Example data: weights and values of items
-    int weight[] = {1, 3, 4, 5};
-    int value[] = {1, 4, 5, 7};
-    int n = 4; // Number of items
-    int W = 7; // Knapsack capacity
+    int p[] = {60, 100, 120}; // p=profit,w=weight
+    int w[] = {10, 20, 30};
+    int m = 50;
+    int n = sizeof(p) / sizeof(p[0]);
 
-    printf("Maximum value in Knapsack = %d\n", knapsack(weight, value, n, W));
+    printf("Maximum value in Knapsack = %d\n", knapsack(m, w, p, n));
     return 0;
 }
