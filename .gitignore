@@ -1,6 +1,0 @@
-*.exe
-*.o
-*.a
-*.out
-Makefile
-.vscode/*

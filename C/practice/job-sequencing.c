@@ -8,10 +8,10 @@
 typedef struct Job
 {
 
-    char id;    // Job Id
-    int deadline;   // Deadline of job
-    int profit; // Profit if job is over before or on
-                // deadline
+    char id;      // Job Id
+    int deadline; // Deadline of job
+    int profit;   // Profit if job is over before or on
+                  // deadline
 } Job;
 
 // This function is used for sorting all jobs according to

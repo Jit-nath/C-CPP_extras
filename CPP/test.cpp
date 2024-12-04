@@ -1,33 +1,19 @@
 #include <iostream>
+#include <thread>
 
-using namespace std;
+void print_hello() { std::cout << "Hello from thread!" << std::endl; }
 
-class _2D
-{
-public:
-    int x;
-    int y;
+void print_world() { std::cout << "World from thread!" << std::endl; }
 
-    _2D(int a, int b) : x(a), y(b) {}
+int main() {
+    // Create two threads
+    std::thread t1(print_hello);
+    std::thread t2(print_world);
 
-    // Display method
-    void disp()
-    {
-        cout << x << " " << y << endl;
-    }
+    t1.join();
+    t2.join();
 
-    static void display()
-    {
-        cout << "this is class _2D" << endl;
-    }
-};
-
-int main()
-{
-    _2D obj(50, 50);
-    _2D::display();
-    cout << "2D Object: ";
-    obj.disp();
+    std::cout << "Main thread finished!" << std::endl;
 
     return 0;
 }
