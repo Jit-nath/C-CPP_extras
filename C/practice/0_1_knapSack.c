@@ -1,12 +1,10 @@
 #include <stdio.h>
 
-int max(int a, int b)
-{
+int max(int a, int b) {
     return (a > b) ? a : b;
 }
 
-int knapsack(int m, int w[], int p[], int n)
-{
+int knapsack(int m, int w[], int p[], int n) {
     int V[n + 1][m + 1];
 
     for (int i = 0; i <= n; i++)
@@ -14,16 +12,11 @@ int knapsack(int m, int w[], int p[], int n)
     for (int j = 0; j <= m; j++)
         V[0][j] = 0;
 
-    for (int i = 1; i <= n; i++)
-    {
-        for (int j = 1; j <= m; j++)
-        {
-            if (w[i] > j)
-            {
+    for (int i = 1; i <= n; i++) {
+        for (int j = 1; j <= m; j++) {
+            if (w[i] > j) {
                 V[i][j] = V[i - 1][j];
-            }
-            else
-            {
+            } else {
                 V[i][j] = max(V[i - 1][j], V[i - 1][j - w[i]] + p[i]);
             }
         }
@@ -32,8 +25,7 @@ int knapsack(int m, int w[], int p[], int n)
     return V[n][m];
 }
 
-int main()
-{
+int main() {
     int p[] = {60, 100, 120}; // p=profit,w=weight
     int w[] = {10, 20, 30};
     int m = 50;

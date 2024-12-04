@@ -1,46 +1,39 @@
 #include <iostream>
 using namespace std;
 
-class MyClass1
-{
+class MyClass1 {
     int x;
     int y;
 
-public:
+  public:
     void setValue(int x, int y);
     void display();
 };
-class MyClass2
-{
+class MyClass2 {
     int x;
     int y;
 
-public:
+  public:
     void setValue(int x, int y);
     void display();
 };
 
-inline void MyClass1::setValue(int x, int y)
-{
+inline void MyClass1::setValue(int x, int y) {
     this->x = x;
     this->y = y;
 }
-inline void MyClass1::display()
-{
+inline void MyClass1::display() {
     cout << x << " " << y << endl;
 }
-inline void MyClass2::setValue(int x, int y)
-{
+inline void MyClass2::setValue(int x, int y) {
     this->x = x;
     this->y = y;
 }
-inline void MyClass2::display()
-{
+inline void MyClass2::display() {
     cout << x << " " << y << endl;
 }
 
-int main()
-{
+int main() {
     MyClass1 obj1;
     MyClass2 obj2;
 

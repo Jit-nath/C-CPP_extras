@@ -3,22 +3,18 @@
 using namespace std;
 queue<int> q;
 #define V 4
-void BFS(int adjMatrix[][V], int d[], int p[], int start)
-{
+void BFS(int adjMatrix[][V], int d[], int p[], int start) {
     int colour[V] = {0};
     colour[start] = 1;
     p[start] = -1;
     d[start] = 0;
     q.push(start);
-    while (!q.empty())
-    {
+    while (!q.empty()) {
         int u = q.front();
         q.pop();
         cout << u << " ";
-        for (int v = 0; v < V; ++v)
-        {
-            if (adjMatrix[u][v] == 1 && colour[v] == 0)
-            {
+        for (int v = 0; v < V; ++v) {
+            if (adjMatrix[u][v] == 1 && colour[v] == 0) {
                 colour[v] = 1;
                 p[v] = u;
                 d[v] = d[u] + 1;
@@ -28,13 +24,10 @@ void BFS(int adjMatrix[][V], int d[], int p[], int start)
         colour[u] = 2;
     }
 }
-int main()
-{
+int main() {
     int adjMatrix[V][V], d[V] = {0}, p[V], start;
-    for (int i = 0; i < V; ++i)
-    {
-        for (int j = 0; j < V; ++j)
-        {
+    for (int i = 0; i < V; ++i) {
+        for (int j = 0; j < V; ++j) {
             cin >> adjMatrix[i][j];
         }
     }

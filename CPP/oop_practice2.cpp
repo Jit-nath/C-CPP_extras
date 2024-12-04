@@ -1,33 +1,28 @@
 #include <iostream>
 using namespace std;
 
-class student
-{
-public:
+class student {
+  public:
     int marks1, marks2, marks3, marks4, marks5;
     int roll, age;
 
-    void info(int roll, int age)
-    {
+    void info(int roll, int age) {
         this->roll = roll;
         this->age = age;
     }
-    void Marks(int m1, int m2, int m3, int m4, int m5)
-    {
+    void Marks(int m1, int m2, int m3, int m4, int m5) {
         marks1 = m1;
         marks2 = m2;
         marks3 = m3;
         marks4 = m4;
         marks5 = m5;
     }
-    int totalMarks()
-    {
+    int totalMarks() {
         return marks1 + marks2 + marks3 + marks4 + marks5;
     }
 };
 
-int main()
-{
+int main() {
 
     student std1, std2, std3, std4, std5;
 
@@ -47,23 +42,19 @@ int main()
 
     int maxMarks = std1.totalMarks();
 
-    if (std2.totalMarks() > maxMarks)
-    {
+    if (std2.totalMarks() > maxMarks) {
         topper = &std2;
         maxMarks = std2.totalMarks();
     }
-    if (std3.totalMarks() > maxMarks)
-    {
+    if (std3.totalMarks() > maxMarks) {
         topper = &std3;
         maxMarks = std3.totalMarks();
     }
-    if (std4.totalMarks() > maxMarks)
-    {
+    if (std4.totalMarks() > maxMarks) {
         topper = &std4;
         maxMarks = std4.totalMarks();
     }
-    if (std5.totalMarks() > maxMarks)
-    {
+    if (std5.totalMarks() > maxMarks) {
         topper = &std5;
         maxMarks = std5.totalMarks();
     }

@@ -2,44 +2,36 @@
 
 using namespace std;
 
-class employee
-{
+class employee {
     unsigned int age;
     int basic;
     int yearExp;
     float DA;
     float TA;
 
-public:
-    void SetIncome(int basic, float DA, float TA)
-    {
+  public:
+    void SetIncome(int basic, float DA, float TA) {
         this->basic = basic;
         this->DA = DA;
         this->TA = TA;
     }
 
-    void SetExperience(int exp)
-    {
+    void SetExperience(int exp) {
         yearExp = exp;
     }
-    void SetAge(unsigned int age)
-    {
+    void SetAge(unsigned int age) {
         this->age = age;
     }
 
-    float EmployeeTotalIncome()
-    {
-        if (yearExp > 5)
-        {
+    float EmployeeTotalIncome() {
+        if (yearExp > 5) {
             return DA * basic + TA * basic + basic + 1200;
-        }
-        else
+        } else
             return DA * basic + TA * basic + basic;
     }
 };
 
-int main()
-{
+int main() {
     employee Abhishek, Arpan, Prasun;
 
     float DA = 0.6;

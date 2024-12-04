@@ -2,13 +2,10 @@
 #include <stdlib.h>
 
 // Function to find the maximum element in an array
-int findMax(int arr[], int size)
-{
+int findMax(int arr[], int size) {
     int max = arr[0];
-    for (int i = 1; i < size; i++)
-    {
-        if (arr[i] > max)
-        {
+    for (int i = 1; i < size; i++) {
+        if (arr[i] > max) {
             max = arr[i];
         }
     }
@@ -16,31 +13,26 @@ int findMax(int arr[], int size)
 }
 
 // Counting Sort function
-void countingSort(int arr[], int size)
-{
+void countingSort(int arr[], int size) {
     // Find the maximum value in the array
     int max = findMax(arr, size);
 
     // Create a count array and initialize it to 0
     int *count = (int *)calloc(max + 1, sizeof(int));
-    if (!count)
-    {
+    if (!count) {
         printf("Memory allocation failed.\n");
         return;
     }
 
     // Count the occurrences of each element
-    for (int i = 0; i < size; i++)
-    {
+    for (int i = 0; i < size; i++) {
         count[arr[i]]++;
     }
 
     // Update the input array based on count array
     int index = 0;
-    for (int i = 0; i <= max; i++)
-    {
-        while (count[i] > 0)
-        {
+    for (int i = 0; i <= max; i++) {
+        while (count[i] > 0) {
             arr[index++] = i;
             count[i]--;
         }
@@ -51,18 +43,15 @@ void countingSort(int arr[], int size)
 }
 
 // Function to print an array
-void printArray(int arr[], int size)
-{
-    for (int i = 0; i < size; i++)
-    {
+void printArray(int arr[], int size) {
+    for (int i = 0; i < size; i++) {
         printf("%d ", arr[i]);
     }
     printf("\n");
 }
 
 // Main function
-int main()
-{
+int main() {
     int arr[] = {4, 2, 2, 8, 3, 3, 1};
     int size = sizeof(arr) / sizeof(arr[0]);
 

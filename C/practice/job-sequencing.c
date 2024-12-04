@@ -5,8 +5,7 @@
 #include <stdlib.h>
 
 // A structure to represent a job
-typedef struct Job
-{
+typedef struct Job {
 
     char id;      // Job Id
     int deadline; // Deadline of job
@@ -16,22 +15,19 @@ typedef struct Job
 
 // This function is used for sorting all jobs according to
 // profit
-int compare(const void *a, const void *b)
-{
+int compare(const void *a, const void *b) {
     Job *temp1 = (Job *)a;
     Job *temp2 = (Job *)b;
     return (temp2->profit - temp1->profit);
 }
 
 // Find minimum between two numbers.
-int min(int num1, int num2)
-{
+int min(int num1, int num2) {
     return (num1 > num2) ? num2 : num1;
 }
 
 // Returns maximum profit from jobs
-void printJobScheduling(Job arr[], int n)
-{
+void printJobScheduling(Job arr[], int n) {
     // Sort all jobs according to decreasing order of profit
     qsort(arr, n, sizeof(Job), compare);
 
@@ -43,17 +39,14 @@ void printJobScheduling(Job arr[], int n)
         slot[i] = false;
 
     // Iterate through all given jobs
-    for (int i = 0; i < n; i++)
-    {
+    for (int i = 0; i < n; i++) {
 
         // Find a free slot for this job (Note that we start
         // from the last possible slot)
-        for (int j = min(n, arr[i].deadline) - 1; j >= 0; j--)
-        {
+        for (int j = min(n, arr[i].deadline) - 1; j >= 0; j--) {
 
             // Free slot found
-            if (slot[j] == false)
-            {
+            if (slot[j] == false) {
                 result[j] = i;  // Add this job to result
                 slot[j] = true; // Make this slot occupied
                 break;
@@ -68,8 +61,7 @@ void printJobScheduling(Job arr[], int n)
 }
 
 // Driver's code
-int main()
-{
+int main() {
     Job arr[] = {{'a', 2, 100},
                  {'b', 1, 19},
                  {'c', 2, 27},
