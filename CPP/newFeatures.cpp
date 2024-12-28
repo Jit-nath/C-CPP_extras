@@ -4,7 +4,7 @@
 #include <memory>
 
 // Lambda function
-auto add = [](int a, int b) { return a + b; };
+auto add = [](int a, int b) -> int { return a + b; };
 
 // Range-based for loop
 void printVector(const std::vector<int>& vec) {
@@ -27,7 +27,7 @@ int main() {
     std::cout << "Sum: " << add(x, y) << std::endl;
 
     // Range-based for loop
-    std::vector<int> numbers = {1, 2, 3, 4, 5};
+    std::vector<int> numbers = { 1, 2, 3, 4, 5 };
     printVector(numbers);
 
     // Smart pointers
